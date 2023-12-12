@@ -1,5 +1,7 @@
-let headerMain=document.getElementById("main-header");
-headerMain.style.borderBottom="3px solid black";
-let addItem=document.getElementById("title");
-addItem.innerHTML="<b>Add Items</b>";
-addItem.style.color="green";
+let bgGreen=document.getElementById("bgGreen");
+bgGreen.style.backgroundColor="#28a745";
+let blodElem=document.getElementsByClassName("list-group-item");
+// blodElem[1].style.fontWeight="bold";
+for(let i=0;i<blodElem.length;i++){
+    blodElem[i].style.fontWeight="bold";  
+}
