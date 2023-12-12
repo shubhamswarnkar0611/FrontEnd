@@ -1,7 +1,8 @@
-let bgGreen=document.getElementById("bgGreen");
-bgGreen.style.backgroundColor="#28a745";
-let blodElem=document.getElementsByClassName("list-group-item");
-// blodElem[1].style.fontWeight="bold";
-for(let i=0;i<blodElem.length;i++){
-    blodElem[i].style.fontWeight="bold";  
-}
+let editLi=document.getElementsByClassName("newClass");
+console.log(editLi);
+editLi[0].style.listStyleType="none";
+editLi[0].style.padding="10px 18px 2px";
+
+let byTagName = document.getElementsByTagName("li");
+byTagName[0].style.fontWeight="bold";
+
