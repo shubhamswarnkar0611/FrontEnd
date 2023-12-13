@@ -1,8 +1,8 @@
-let editLi=document.getElementsByClassName("newClass");
-console.log(editLi);
-editLi[0].style.listStyleType="none";
-editLi[0].style.padding="10px 18px 2px";
+let editLi=document.querySelector("#bgGreen");
+editLi.style.backgroundColor="lightgreen";
 
-let byTagName = document.getElementsByTagName("li");
-byTagName[0].style.fontWeight="bold";
+let invisibleLi=document.querySelectorAll("#invisi");
+invisibleLi[0].style.display="none";
+
+
 
