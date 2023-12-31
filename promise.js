@@ -1,19 +1,23 @@
-const posts =[];
+const posts = [];
 let lastActivityTime=null;
+
 
 function createPost(post){
     return new Promise((res,rej)=>{
      setTimeout(()=>{
-        posts.push({post,lastActivityTime})
-        res();
-     },1000) 
+        posts.push({title: post});
+        res(post);
+     }, 1000) 
     });
 }
 
 function updateLastUserActivityTime(){
     return new Promise((res,rej)=>{
        setTimeout(()=>{
-        lastActivityTime=new Date();
+        lastActivityTime = new Date();
+        posts[posts.length-1].lastActivityTime = lastActivityTime.toLocaleString();
+        posts[posts.length-1].year = lastActivityTime.getFullYear();
+        posts[posts.length-1]['date time'] = lastActivityTime.toISOString();
         res(lastActivityTime);
        },1000) 
     });
@@ -32,25 +36,21 @@ function deletePost() {
     });
   }
 
-  function logPostsAndActivity() {
-    console.log("Posts:", posts);
-    console.log("Last Activity Time:", lastActivityTime);
-  }
-
-  createPost({ title: "Post 1" })
-  .then(() => updateLastUserActivityTime())
-  .then(() => {
-    logPostsAndActivity();
-    return createPost({ title: "Post 2" });
-  })
-  .then(() => updateLastUserActivityTime())
-  .then(() => {
-    logPostsAndActivity();
-    return deletePost();
-  })
-  .then(() => {
-    logPostsAndActivity();
-  })
-  .catch((error) => {
-    console.error("Error:", error);
+  Promise.all([createPost("Post1"),updateLastUserActivityTime()]).then(([createPostRes,updateRes])=>{
+    console.log("Posts:",createPostRes);
+    console.log("User Last Activity Time:",updateRes);
   });
+  Promise.all([createPost("Post3"),updateLastUserActivityTime()]).then(([createPostRes,updateRes])=>{
+    console.log("Posts:",createPostRes);
+    console.log("User Last Activity Time:",updateRes);
+  });
+  Promise.all([createPost("Post2"),updateLastUserActivityTime()]).then(([createPostRes,updateRes])=>{
+    console.log("Posts:",createPostRes);
+    console.log("User Last Activity Time:",updateRes);
+  });
+
+  
+
+  console.log(posts);
+
+ 

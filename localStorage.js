@@ -21,11 +21,14 @@ function showUserExpenseToScreen(obj) {
     //showung on screen code
     let parentElement = document.getElementById("parentEle");
     let childElement = document.createElement("li");
+    // childElement.className="list-group";
+
     childElement.textContent= obj.newExpense+"--"+obj.newDescription+"--"+obj.newCategory;
 
     //delete code
     let deleteChild = document.createElement("button");
     deleteChild.textContent="Delete";
+    deleteChild.className="btn btn-danger  w-2";
     deleteChild.onclick= ()=>{
         localStorage.removeItem(obj.newDescription);
         parentElement.removeChild(childElement);
@@ -35,6 +38,7 @@ function showUserExpenseToScreen(obj) {
    //edit code
    let editChild = document.createElement("button");
    editChild.textContent="Edit";
+   editChild.className="btn btn-info";
    editChild.onclick=()=>{
      localStorage.removeItem(obj.newDescription);
      parentElement.removeChild(childElement);
