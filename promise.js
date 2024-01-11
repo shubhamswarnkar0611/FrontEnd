@@ -49,8 +49,13 @@ function deletePost() {
     console.log("User Last Activity Time:",updateRes);
   });
 
+  deletePost().then((res)=>{
+    console.log(res);
+    console.log(posts);
+  })
+
   
 
-  console.log(posts);
+ 
 
  
