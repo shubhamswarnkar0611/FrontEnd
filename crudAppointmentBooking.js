@@ -49,4 +49,5 @@ function showUserAppointmentToScreen(obj){
     
     childElement.appendChild(editChild);
     parentElement.appendChild(childElement);
+    
 }
