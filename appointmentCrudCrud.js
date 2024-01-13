@@ -1,5 +1,5 @@
 let url =
-  "https://crudcrud.com/api/99e40e61675f4b908dbc9bfbc3866c26/appointment";
+  "https://crudcrud.com/api/1861d8a4f3cd400eba0fa87138948790/appointment";
 
 let expense = document.getElementById("post");
 let editButton = document.getElementById("patch");
@@ -77,7 +77,7 @@ function showUserExpenseToScreen(obj) {
   // childElement.className="list-group";
 
   childElement.textContent =
-    obj.newExpense + "--" + obj.newDescription + "--" + obj.newCategory;
+    obj.newExpense + "-" + obj.newDescription + "-" + obj.newCategory;
 
   //delete code
   let deleteChild = document.createElement("button");
