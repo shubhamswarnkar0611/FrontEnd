@@ -112,7 +112,6 @@ async function editPost(){
  showUserAppointmentToScreen(obj); 
  }catch(err){
    console.log(err.message);
- 
  }
 
 }
