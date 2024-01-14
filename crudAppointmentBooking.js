@@ -45,17 +45,30 @@ function showUserAppointmentToScreen(obj){
     let childElement=document.createElement("li"); 
 
    
-    childElement.textContent=`${obj.name}-${obj.phone}-${obj.email}`;
+    childElement.textContent=`${obj._id}-${obj.name}-${obj.phone}-${obj.email}`;
 
     //delete
-
     let deleteChild=document.createElement("button");
-    deleteChild.textContent="DELETE"
+    deleteChild.textContent="DELETE";
+    deleteChild.id=obj._id;
+    deleteChild.onclick=(event)=>{
+      axios
+      .delete(`${url}/${event.target.id}`)
+      .then(() => {
+        alert("Deleted successfully");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    parentElement.removeChild(childElement);
+    }
+    
+
 
     //edit
     
     let editChild=document.createElement("button");
-    editChild.textContent="EDIT"
+    editChild.textContent="EDIT";
 
     //append
     
